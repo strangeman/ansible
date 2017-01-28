@@ -601,7 +601,7 @@ def main():
     if mode == 'put':
 
         # Use this snippet to debug through conditionals:
-#       module.exit_json(msg="Bucket return %s"%bucketrtn)
+        # module.exit_json(msg="Bucket return %s"%bucketrtn)
 
         # Lets check the src path.
         pathrtn = path_check(src)
@@ -643,7 +643,7 @@ def main():
     # Delete an object from a bucket, not the entire bucket
     if mode == 'delobj':
         if obj is None:
-            module.fail_json(msg="object parameter is required", failed=True);
+            module.fail_json(msg="object parameter is required", failed=True)
         if bucket:
             bucketrtn = bucket_check(module, s3, bucket)
             if bucketrtn is True:

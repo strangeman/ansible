@@ -166,7 +166,7 @@ options:
     default: null
   aws_secret_key:
     description:
-      - AWS secret key. If not set then the value of the AWS_SECRET_KEY environment variable is used. 
+      - AWS secret key. If not set then the value of the AWS_SECRET_KEY environment variable is used.
     required: false
     aliases: [ 'ec2_secret_key', 'secret_key' ]
   aws_access_key:
@@ -280,7 +280,7 @@ EXAMPLES = '''
     command: reboot
     instance_name: database
     wait: yes
-    
+
 # Restore a Postgres db instance from a snapshot, wait for it to become available again, and
 #  then modify it to add your security group. Also, display the new endpoint.
 #  Note that the "publicly_accessible" option is allowed here just as it is in the AWS CLI
@@ -296,9 +296,9 @@ EXAMPLES = '''
      wait: yes
      wait_timeout: 600
      tags:
-         Name: pg1_test_name_tag 
+         Name: pg1_test_name_tag
   register: rds
-  
+
 - local_action:
      module: rds
      command: modify
@@ -844,7 +844,7 @@ def promote_db_instance(module, conn):
     valid_vars = ['backup_retention', 'backup_window']
     params = validate_parameters(required_vars, valid_vars, module)
     instance_name = module.params.get('instance_name')
-    
+
     result = conn.get_db_instance(instance_name)
     if not result:
         module.fail_json(msg="DB Instance %s does not exist" % instance_name)

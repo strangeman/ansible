@@ -143,7 +143,7 @@ def main():
     state = module.params["state"]
     changed = False
 
-    # To use defaults values, keyword arguments must be absent, so 
+    # To use defaults values, keyword arguments must be absent, so
     # check which values are empty and don't include in the **kw
     # dictionary
     params_map = {
@@ -178,7 +178,7 @@ def main():
         else:
             if state == "absent":
                 changed = ext_delete(cursor, ext)
-    
+
             elif state == "present":
                 changed = ext_create(cursor, ext)
     except NotSupportedError:

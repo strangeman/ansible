@@ -112,7 +112,7 @@ EXAMPLES = '''
   - name: "Tacacs Server Host Configuration"
     nxos_aaa_server_host:
         state: present
-        server_type: tacacs 
+        server_type: tacacs
         tacacs_port: 89
         host_timeout: 10
         address: 5.6.7.8
@@ -126,7 +126,7 @@ proposed:
     description: k/v pairs of parameters passed into module
     returned: always
     type: dict
-    sample: {"address": "1.2.3.4", "auth_port": "2084", 
+    sample: {"address": "1.2.3.4", "auth_port": "2084",
             "host_timeout": "10", "server_type": "radius"}
 existing:
     description:
@@ -137,7 +137,7 @@ end_state:
     description: k/v pairs of configuration after module execution
     returned: always
     type: dict
-    sample: {"address": "1.2.3.4", "auth_port": "2084", 
+    sample: {"address": "1.2.3.4", "auth_port": "2084",
             "host_timeout": "10", "server_type": "radius"}
 updates:
     description: command sent to the device
@@ -428,7 +428,7 @@ def _match_dict(match_list, key_map):
 def get_aaa_host_info(module, server_type, address):
     aaa_host_info = {}
     command = 'show run | inc {0}-server.host.{1}'.format(server_type, address)
-    
+
     body = execute_show_command(command, module, command_type='cli_show_ascii')
 
     if body:
@@ -574,7 +574,7 @@ def main():
     results['updates'] = cmds
     results['changed'] = changed
     results['end_state'] = end_state
- 
+
     module.exit_json(**results)
 
 
